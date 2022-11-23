@@ -1,5 +1,7 @@
 package com.alibaba.academy.controller;
 
+import com.alibaba.academy.model.Users;
+import com.alibaba.academy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,12 +11,16 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.alibaba.academy.model.Dog;
 
+import java.util.List;
+
 @Controller
 public class WebController {
 	
 	@Autowired Dog dog;
 	
 	@Autowired InternalResourceViewResolver viewResolver;
+
+	@Autowired UserRepository repository;
 	
 	/*
 	 * private Dog dog;
@@ -29,6 +35,8 @@ public class WebController {
 	@GetMapping(value = "/")
 	public ModelAndView home(ModelMap model) {
 		model.addAttribute("message", "Hello Spring MVC Framework!");
+		List<Users> users = repository.findAll();
+		users.forEach(System.out::println);
 		return new ModelAndView("index", model);
 	}
 

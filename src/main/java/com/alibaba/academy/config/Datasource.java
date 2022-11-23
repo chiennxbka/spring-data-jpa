@@ -35,7 +35,7 @@ public class Datasource {
         lfb.setDataSource(dataSource());
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         lfb.setJpaVendorAdapter(vendorAdapter);
-        lfb.setPackagesToScan("com.ali.academy.model");
+        lfb.setPackagesToScan("com.alibaba.academy.model");
         lfb.setJpaProperties(hibernateProps());
         return lfb;
     }
