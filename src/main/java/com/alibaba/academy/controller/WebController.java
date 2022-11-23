@@ -35,8 +35,8 @@ public class WebController {
 	@GetMapping(value = "/")
 	public ModelAndView home(ModelMap model) {
 		model.addAttribute("message", "Hello Spring MVC Framework!");
-		List<Users> users = repository.findAll();
-		users.forEach(System.out::println);
+//		List<Users> users = repository.findAll();
+//		users.forEach(System.out::println);
 		return new ModelAndView("index", model);
 	}
 
